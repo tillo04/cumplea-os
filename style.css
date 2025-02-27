@@ -1,0 +1,207 @@
+* {
+    min-width: 0;
+    font: inherit;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  img,
+  video,
+  svg {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+  
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background-color: #fad7df;
+  }
+  
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  
+  p {
+    text-wrap: pretty;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Contenedor del sobre */
+  .container-letter {
+    position: relative;
+    top: 225px; /* Ajustar este valor para mover el sobre hacia abajo */
+    transition: transform .75s; /* Añadir transición para un movimiento suave */
+  }
+
+  /* Contenedor del mensaje */
+  .container-message {
+    position: relative;
+    top: -100px; /* Ajustar este valor para mover el mensaje hacia abajo */
+    transition: transform .75s; /* Añadir transición para un movimiento suave */
+  }
+  
+  .cover {
+    position: absolute;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-top: 100px solid #fe3334;
+    border-bottom: 100px solid transparent;
+    transition: transform .75s;
+    transform-origin: top;
+  }
+  
+  /* Papel del mensaje */
+  .paper {
+    position: absolute;
+    padding: 1.5rem;
+    line-height: 2rem;
+    right: 5px;
+    z-index: 1; /* Asegurar que el papel esté por encima del sobre */
+    background: white;
+    width: 390px;
+    height: 180px;
+    transition: all .75s, transform .75s; /* Añadir transición para un movimiento suave */
+    display: none; /* Ocultar el mensaje inicialmente */
+    top: -120px; /* Ajustar este valor para que coincida con la posición del sobre */
+    background: url('snoopy.png') no-repeat center center; /* Coincidir el fondo del sobre */
+    background-size: cover;
+  }
+  
+  .letter {
+    border-left: 200px solid #ff989e;
+    border-right: 200px solid #ff989e;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid #ff858a;
+  }
+  
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('solsnoopy.png') no-repeat center center;
+    background-size: cover;
+    z-index: -2;
+  }
+  
+  .options {
+    display: flex;
+    gap: 5rem;
+    position: relative;
+    top: 150px; /* Adjust this value to move the buttons lower */
+  }
+  
+  .options button {
+    color: #ff3234;
+    font-weight: 600;
+    border-radius: 3px;
+    background: #fad7df;
+    padding: 0.5rem 1rem;
+    border: 1px solid #fe3334;
+    cursor: pointer;
+  }
+  
+  .options button:hover {
+    background: #ff989e;
+    color: white;
+  }
+  
+  .open-cover {
+    transform: rotatex(180deg); /* Remove translateX from here */
+  }
+  
+  .open-paper {
+    animation: openPaper .5s forwards, enlargePaper .5s forwards; /* Add enlargePaper animation */
+    top: -120px; /* Ensure the message starts from the envelope */
+  }
+  
+  @keyframes openPaper {
+    0% {
+      top: 0;
+    }
+    100% {
+      top: -120px;
+    }
+  }
+  
+  .close-paper {
+    animation: closePaper .5s forwards;
+  }
+  
+  @keyframes closePaper {
+    0% {
+      top: -120px;
+    }
+    100% {
+      top: 0;
+    }
+  }
+  
+  .heart {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 46.5%;
+    margin: auto;
+    font-size: 3rem;
+    color: #fe3334;
+    animation: crecer 1s forwards;
+  }
+  
+  @keyframes crecer {
+    0% {
+      scale: 1;
+      opacity: 1;
+    }
+    100% {
+      scale: 3;
+      opacity: 0;
+    }
+  }
+
+  .slide-up {
+    animation: slideUp .75s forwards;
+  }
+  
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .slide-up-from-envelope {
+    animation: slideUpFromEnvelope .75s forwards;
+  }
+  
+  @keyframes slideUpFromEnvelope {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(-120px); /* Adjust this value to match the envelope's position */
+      opacity: 1;
+    }
+  }
