@@ -86,7 +86,7 @@
   .letter {
     border-left: 200px solid #ff989e;
     border-right: 200px solid #ff989e;
-    border-top: 100px solid transparent;
+    border-top: 100px solid #ff858a;
     border-bottom: 100px solid #ff858a;
   }
   
