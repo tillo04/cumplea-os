@@ -9,8 +9,6 @@ if (messageCustom) {
   mainMessageElement.style.display = 'none' // Ocultar el mensaje inicialmente
 }
 
-// El tutorial comienza aquí
-
 const btnOpenElement = document.querySelector('#open')
 const btnCloseElement = document.querySelector('#close')
 
